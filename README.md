@@ -351,6 +351,10 @@ To deactiavate the enviroment despactactivate
 
     #!/bin/bash -l
     source $HOME/spack/share/spack/setup-env.sh
+     
+    module load compiler/gcc/13.3.1
+    module load mpi/openmpi/5.0.7
+    module load python/311
     spack env activate fenicsx-090
 
 # know issue for adios2
