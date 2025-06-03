@@ -1,0 +1,32 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - adios2%gcc@13.3.1+python
+  - petsc%gcc@13.3.1+mumps
+  - py-fenics-dolfinx@0.9.0%gcc@13.3.1 cflags=-O3 fflags=-O3
+  - fenics-dolfinx@0.9.0%gcc@13.3.1+adios2
+  - py-nanobind@2.1.0%gcc@13.3.1
+  view: true
+  concretizer:
+    unify: true
+  packages:
+    sqlite:
+      externals:
+      - spec: sqlite@3.26.0+fts~functions+rtree
+        prefix: /usr
+    meson:
+      externals: []
+    python:
+      externals:
+      - spec: python@3.11.11+bz2+crypt+ctypes+dbm+lzma+nis+pyexpat+pythoncmd+readline+sqlite3+ssl+tix+tkinter+uuid+zlib
+        prefix: /cluster/python/311
+    openmpi:
+      externals:
+      - spec: openmpi@5.0.7~cuda~java~memchecker~static~wrapper-rpath fabrics=psm2,ucx
+          schedulers=none
+        prefix: /cluster/mpi/openmpi/5.0.7
+  compilers: []
