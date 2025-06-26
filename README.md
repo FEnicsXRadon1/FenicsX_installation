@@ -77,7 +77,12 @@ Then create `$HOME/.spack/packages.yaml` where we add all packages which are alr
 
     touch $HOME/.spack/packages.yaml
 
-with the following contents:
+run the script  findexternal.sh
+```bash
+source findexternal.sh
+```
+It should fill in automatically packages.yaml with the following contents
+
 ```bash     
 packages:
   krb5:
