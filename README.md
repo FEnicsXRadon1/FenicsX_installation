@@ -393,9 +393,11 @@ Other way is to  add in python script before adios2
   module load compiler/gcc/13.3.1
   module load mpi/openmpi/5.0.7
   module load python/311
+  spack env /pathtothefolder/activatefenicsx-090  
   
-  
-  spack env activatefenicsx-090  
+  export PYTHONPATH=$SPACK_ENV/.spack-env/view/lib64/:$PYTHONPATH
+  export PYTHONPATH=$(find $SPACK_ENV/.spack-env -type d -name 'site-packages' | grep venv):$PYTHONPATH
+
   
   srun --mpi=pmix  -n $SLURM_NTASKS python nameoffile.py
 ```
